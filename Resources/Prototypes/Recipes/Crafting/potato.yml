@@ -22,11 +22,11 @@
   
 - type: construction
   name: supercompact AI chip
-  id: PotatoAIChip
-  graph: PotatoAIChip
+  id: SmallAIChip
+  graph: SmallAIChip
   startNode: start
-  targetNode: potatoaichip
+  targetNode: smallaichip
   category: construction-category-misc
   description: A masterfully(?) crafted AI chip, requiring a similarly improvised power source.
-  icon: { sprite: Objects/Misc/potatoai_chip.rsi, state: icon }
+  icon: { sprite: Objects/Misc/smallai_chip.rsi, state: icon }
   objectType: Item

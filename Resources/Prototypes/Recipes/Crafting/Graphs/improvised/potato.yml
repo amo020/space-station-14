@@ -38,18 +38,18 @@
             - tag: SmallAIChip
               name: a super-compact AI chip
               icon:
-                sprite: Objects/Misc/potatoai_chip.rsi
+                sprite: Objects/Misc/smallai_chip.rsi
                 state: icon
     - node: potatoai
       entity: PotatoAI
 
 - type: constructionGraph
-  id: PotatoAIChip
+  id: SmallAIChip
   start: start
   graph:
     - node: start
       edges:
-        - to: potatoaichip
+        - to: smallaichip
           steps:
             - material: Steel
               amount: 1
@@ -70,5 +70,5 @@
               icon:
                 sprite: Objects/Misc/stock_parts.rsi
                 state: capacitor
-    - node: potatoaichip
-      entity: PotatoAIChip
+    - node: smallaichip
+      entity: SmallAIChip
