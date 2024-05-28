@@ -1,4 +1,4 @@
-﻿# Non-fungible apes, anyone?
+# Non-fungible apes, anyone?
 - type: nameIdentifierGroup
   id: Monkey
   prefix: MK
@@ -43,3 +43,9 @@
   prefix: TELE
   minValue: 0
   maxValue: 999
+
+- type: nameIdentifierGroup
+  id: SmallAIChip
+  prefix: SAI
+  minValue: 10
+  maxValue: 99

@@ -8,7 +8,19 @@
   },
   "states": [
     {
-      "name": "icon"
+        "name": "icon-smallaichip-off"
+    },
+    {
+        "name": "smallaichip-base"
+    },
+    {
+        "name": "smallaichip-off-overlay"
+    },
+    {
+        "name": "smallaichip-on-overlay"
+    },
+    {
+        "name": "smallaichip-searching-overlay"
     }
   ]
 }

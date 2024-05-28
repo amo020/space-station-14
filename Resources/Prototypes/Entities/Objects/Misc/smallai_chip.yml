@@ -1,0 +1,59 @@
+# Add here a small specific noise to notice players around
+
+- type: entity
+  parent: BaseItem
+  id: SmallAIChip
+  name: supercompact AI chip
+  description: This high-tech AI chip requires a voltage of exactly 1.1V to function correctly.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/smallai_chip.rsi
+    layers:
+    - state: smallaichip-base
+    - state: smallaichip-off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: Input
+    context: "human"
+  - type: BlockMovement
+  - type: ToggleableGhostRole
+    examineTextMindPresent: pai-system-pai-installed
+    examineTextMindSearching: pai-system-still-searching
+    examineTextNoMind: pai-system-off
+    beginSearchingText: pai-system-searching
+    roleName: pai-system-role-name-smallaichip
+    roleDescription: pai-system-role-description-smallaichip
+    wipeVerbText: pai-system-wipe-device-verb-text
+    wipeVerbPopup: pai-system-wiped-device
+    stopSearchVerbText: pai-system-stop-searching-verb-text
+    stopSearchVerbPopup: pai-system-stopped-searching
+  - type: Examiner
+    # Note that a smallAIChip can only "talk" binary
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+  - type: ActiveRadio
+    channels:
+    - Binary
+  - type: TypingIndicator
+    proto: robot
+  - type: MobState
+    allowedStates:
+      - Alive
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: smallaichip-off-overlay }
+          Searching: { state: smallaichip-searching-overlay }
+          On: { state: smallaichip-on-overlay }
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+      - SmallAIChip
+  - type: Construction
+    graph: SmallAIChip
+    node: smallaichip

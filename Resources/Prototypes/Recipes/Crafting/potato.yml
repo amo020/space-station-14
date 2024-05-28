@@ -28,5 +28,5 @@
   targetNode: smallaichip
   category: construction-category-misc
   description: A masterfully(?) crafted AI chip, requiring a similarly improvised power source.
-  icon: { sprite: Objects/Misc/smallai_chip.rsi, state: icon }
+  icon: { sprite: Objects/Misc/smallai_chip.rsi, state: icon-smallaichip-off }
   objectType: Item

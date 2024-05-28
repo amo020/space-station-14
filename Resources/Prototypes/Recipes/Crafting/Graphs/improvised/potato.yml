@@ -39,7 +39,7 @@
               name: a super-compact AI chip
               icon:
                 sprite: Objects/Misc/smallai_chip.rsi
-                state: icon
+                state: icon-smallaichip-off
     - node: potatoai
       entity: PotatoAI
 
