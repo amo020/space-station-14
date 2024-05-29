@@ -45,7 +45,7 @@
   maxValue: 999
 
 - type: nameIdentifierGroup
-  id: SmallAIChip
+  id: SmallAI
   prefix: SAI
   minValue: 10
   maxValue: 99

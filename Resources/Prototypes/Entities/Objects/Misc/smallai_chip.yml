@@ -14,7 +14,7 @@
       shader: unshaded
       map: ["screen"]
   - type: Input
-    context: "human"
+    context: human
   - type: BlockMovement
   - type: ToggleableGhostRole
     examineTextMindPresent: pai-system-pai-installed
@@ -36,6 +36,8 @@
   - type: ActiveRadio
     channels:
     - Binary
+  - type: NameIdentifier
+    group: SmallAI
   - type: TypingIndicator
     proto: robot
   - type: MobState
