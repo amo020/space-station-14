@@ -1,5 +1,3 @@
-# Add here a small specific noise to notice players around
-
 - type: entity
   parent: BaseItem
   id: SmallAIChip
@@ -28,7 +26,6 @@
     stopSearchVerbText: pai-system-stop-searching-verb-text
     stopSearchVerbPopup: pai-system-stopped-searching
   - type: Examiner
-    # Note that a smallAIChip can only "talk" binary
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:

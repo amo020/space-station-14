@@ -15,6 +15,8 @@ pai-system-role-description-potato = It's a toy for children. And now you live i
 pai-system-role-name-smallaichip = Supercompact A.I. chip
 pai-system-role-description-smallaichip = Be someone's very tiny AI
 
+pai-system-default-smallaichip = Tiny AI chip
+
 pai-system-wipe-device-verb-text = Remove pAI
 pai-system-wiped-device = The pAI was wiped from the device.
 

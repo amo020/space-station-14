@@ -1,3 +1,4 @@
+using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -17,6 +18,19 @@ namespace Content.Shared.PAI;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PAIComponent : Component
 {
+    #region SmallAIChip
+    /// <summary>
+    /// The container ID for the SmallAIChip
+    /// </summary>
+    [DataField("SmallAIChipContainerId")]
+    public string SmallAIChipContainerId = "smallaichip";
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public ContainerSlot SmallAIChipContainer = default!;
+
+    public EntityUid? SmallAIChipEntity => SmallAIChipContainer.ContainedEntity;
+    #endregion
+
     /// <summary>
     /// The last person who activated this PAI.
     /// Used for assigning the name.

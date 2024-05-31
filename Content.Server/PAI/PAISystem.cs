@@ -3,9 +3,11 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Instruments;
 using Content.Server.Kitchen.Components;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.PAI;
 using Content.Shared.Popups;
+using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using System.Text;
 using Robust.Shared.Player;
@@ -19,6 +21,7 @@ public sealed class PAISystem : SharedPAISystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ToggleableGhostRoleSystem _toggleableGhostRole = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
 
     /// <summary>
     /// Possible symbols that can be part of a scrambled pai's name.
@@ -116,6 +119,27 @@ public sealed class PAISystem : SharedPAISystem
             var proto = metadata.EntityPrototype;
             if (proto != null)
                 _metaData.SetEntityName(uid, proto.Name);
+        }
+    }
+
+    protected override void OnInserted(EntityUid uid, PAIComponent component, EntInsertedIntoContainerMessage args)
+    {
+        base.OnInserted(uid, component, args);
+
+        if (HasComp<PAIComponent>(args.Entity) && _mind.TryGetMind(args.Entity, out var mindId, out var mind))
+        {
+            _mind.TransferTo(mindId, uid, mind: mind);
+        }
+    }
+
+    protected override void OnRemoved(EntityUid uid, PAIComponent component, EntRemovedFromContainerMessage args)
+    {
+        base.OnRemoved(uid, component, args);
+
+        if (HasComp<PAIComponent>(args.Entity) &
+            _mind.TryGetMind(uid, out var mindId, out var mind))
+        {
+            _mind.TransferTo(mindId, args.Entity, mind: mind);
         }
     }
 }

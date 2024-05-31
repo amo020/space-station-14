@@ -108,15 +108,22 @@
   parent: PersonalAI
   id: PotatoAI
   name: potato artificial intelligence
-  description: It's a potato. You forced it to be sentient, you monster.
+  description: It's a potato now. You monster.
   components:
+  - type: ContainerContainer
+    containers:
+      smallaichip: !type:ContainerSlot { }
+  - type: ItemSlots
+    slots:
+      smallaichip:
+        name: pai-system-default-smallaichip
   - type: Sprite
     sprite: Objects/Fun/pai.rsi
     layers:
     - state: potato-base
     - state: potato-off-overlay
       shader: unshaded
-      map: ["screen"]
+      map: ["screen"] 
   - type: ToggleableGhostRole
     roleName: pai-system-role-name-potato
     roleDescription: pai-system-role-description-potato
