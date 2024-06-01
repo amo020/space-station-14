@@ -141,5 +141,7 @@ public sealed class PAISystem : SharedPAISystem
         {
             _mind.TransferTo(mindId, args.Entity, mind: mind);
         }
+        // Turning off the PAI no matter what
+        PAITurningOff(uid);
     }
 }

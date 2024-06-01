@@ -1,6 +1,8 @@
-using Robust.Shared.Containers;
+using Content.Shared.Tools;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Audio;
+using Robust.Shared.Containers;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.PAI;
@@ -20,15 +22,30 @@ public sealed partial class PAIComponent : Component
 {
     #region SmallAIChip
     /// <summary>
-    /// The container ID for the SmallAIChip
+    ///     The tool required to extract the SmallAIChip from device.
     /// </summary>
-    [DataField("SmallAIChipContainerId")]
-    public string SmallAIChipContainerId = "smallaichip";
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("smallAIChipExtractionMethod", customTypeSerializer: typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
+    public string SmallAIChipExtractionMethod = "Screwing";
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public ContainerSlot SmallAIChipContainer = default!;
+    [DataField("smallAIChipExtractionSound")]
+    public SoundSpecifier SmallAIChipExtractionSound = new SoundPathSpecifier("/Audio/Items/pistol_magout.ogg");
 
-    public EntityUid? SmallAIChipEntity => SmallAIChipContainer.ContainedEntity;
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("smallAIChipInsertionSound")]
+    public SoundSpecifier SmallAIChipInsertionSound = new SoundPathSpecifier("/Audio/Items/pistol_magin.ogg");
+
+    /// <summary>
+    ///     The id container for the super compact AI Chip
+    /// </summary>
+    [ViewVariables]
+    public Container SmallAIChipContainer = default!;
+    public const string SmallAIChipContainerName = "smallaichip_slot";
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("smallAIChipSlots")]
+    public int SmallAIChipSlots = 1;
     #endregion
 
     /// <summary>
