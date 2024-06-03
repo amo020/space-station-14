@@ -10,7 +10,6 @@ using Content.Shared.Popups;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using System.Text;
-using Robust.Shared.Player;
 
 namespace Content.Server.PAI;
 

@@ -8,11 +8,19 @@
   components:
   - type: ContainerContainer
     containers:
-      smallaichip_slot: !type:Container
-  - type: ContainerFill
-    containers:
+      smallaichip_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
       smallaichip_slot:
-      - SmallAIChip
+        name: pai-system-default-smallaichip
+        startingItem: SmallAIChip
+        whitelist:
+          components:
+          - SmallAIChip
+  #- type: ContainerFill
+  #  containers:
+  #    smallaichip_slot:
+  #    - SmallAIChip
   - type: Instrument
     allowPercussion: false
     handheld: false
@@ -79,6 +87,10 @@
           Searching: { state: pai-searching-overlay }
           On: { state: pai-on-overlay }
   - type: StationMap
+  #- trigger:
+  #    - !type:EmptyContainersBehaviour
+  #      containers:
+  #      - smallaichip_slot
 
 - type: entity
   parent: PersonalAI

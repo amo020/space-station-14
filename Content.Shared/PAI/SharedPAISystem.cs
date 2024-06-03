@@ -1,5 +1,4 @@
 using Content.Shared.Actions;
-using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Containers;
 
 namespace Content.Shared.PAI
@@ -16,7 +15,7 @@ namespace Content.Shared.PAI
     public abstract class SharedPAISystem : EntitySystem
     {
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-        [Dependency] protected readonly SharedContainerSystem _container = default!;
+        [Dependency] private readonly SharedContainerSystem _container = default!;
 
         public override void Initialize()
         {
@@ -39,8 +38,8 @@ namespace Content.Shared.PAI
         {
             if (!TryComp<ContainerManagerComponent>(uid, out var containerManager))
                 return;
-            // Need to debug this with proper new names
-            //component.SmallAIChipContainer = _container.EnsureContainer<ContainerSlot>(uid, component.SmallAIChipContainerName, containerManager);
+
+            component.SmallAIChipContainer = _container.EnsureContainer<ContainerSlot>(uid, component.SmallAIChipContainerId, containerManager);
         }
 
         private void OnShutdown(EntityUid uid, PAIComponent component, ComponentShutdown args)
